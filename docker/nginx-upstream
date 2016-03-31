@@ -1,0 +1,13 @@
+upstream trackingapi { 
+  server 127.0.0.1:8888;
+}
+
+server {
+	listen 80;
+	#server_name apps.madewithtea.com;
+	charset utf-8;
+
+	location / { 
+      proxy_pass http://trackingapi;
+	}
+}
